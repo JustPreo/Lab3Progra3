@@ -5,8 +5,9 @@ template <class T> struct Node{
     public:
     Node<T>(T value){
         this->value = value;
+        next = nullptr;
     }
-        Node* next = nullptr;
+        Node* next;
         T value;
 };
 

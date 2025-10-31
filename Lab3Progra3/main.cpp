@@ -1,4 +1,6 @@
 #include "LinkedList.h"
+#include "Operation.h"
+#include "Stack.h"
 #include "node.h"
 #include <QCoreApplication>
 #include <string>
@@ -15,6 +17,7 @@ int main(int argc, char *argv[])
 
     QCoreApplication a(argc, argv);
     LinkedList<string> l;
+    Stack<Operation> UndoS;
     int opcion = 1;
     while (opcion != 0){
     cout<<"=== Mini Editor ===\n";

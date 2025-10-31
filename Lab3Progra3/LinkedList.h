@@ -6,10 +6,10 @@
 template<class T> class LinkedList{
 public:
     LinkedList<T>(){
-
+        head = nullptr;
     }
 
-    Node<T>* head = nullptr;
+    Node<T>* head;
 
     void push_back(T value);//Push ultimo elem
     void insert(int pos , T value);//Push en x pos
@@ -26,7 +26,8 @@ void LinkedList<T>::push_back(T value){
     //Revisamoos si es nullptr
     if (head == nullptr)
     {
-        head == nodeNew;
+        head = nodeNew;
+        std::cout <<"Creo uno nuevo en el head?\n";
         return;
     }
     Node<T>* it = this->head;
@@ -34,7 +35,8 @@ void LinkedList<T>::push_back(T value){
     while (it != nullptr){//Va hasta el final de la lista
         it = it->next;
     }
-    it->next = nodeNew;
+    it = nodeNew;
+    std::cout <<"Creo uno nuevo?\n";
 
 }
 

@@ -10,6 +10,12 @@ struct Operation{
     string oldValue;
     string newValue;
     //Construct
+    Operation(){
+        this->newValue = "a";
+        this->oldValue = "b";
+        this->type = OpType::INSERT;
+        this->pos = -1;
+    };
     Operation(string oldValue,string newValue,OpType typeOp,int pos){
         this->oldValue=oldValue;
         this->newValue = newValue;
