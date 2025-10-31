@@ -14,6 +14,9 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
 
 add_executable(Lab3Progra3
   main.cpp
+  Node.h
+  LinkedList.h
+  Stack.h
 )
 target_link_libraries(Lab3Progra3 Qt${QT_VERSION_MAJOR}::Core)
 
