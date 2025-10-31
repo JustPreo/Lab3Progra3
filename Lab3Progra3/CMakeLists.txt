@@ -17,6 +17,7 @@ add_executable(Lab3Progra3
   Node.h
   LinkedList.h
   Stack.h
+  Operation.h
 )
 target_link_libraries(Lab3Progra3 Qt${QT_VERSION_MAJOR}::Core)
 

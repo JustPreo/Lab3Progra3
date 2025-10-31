@@ -2,16 +2,22 @@
 #define LINKEDLIST_H
 
 #include "Node.h"
+#include <iostream>
 template<class T> class LinkedList{
 public:
+    LinkedList<T>(){
+
+    }
+
     Node<T>* head = nullptr;
 
     void push_back(T value);//Push ultimo elem
     void insert(int pos , T value);//Push en x pos
     bool erase(int pos);//Borar x pos
-    Node<T> at(int pos);//Conseguir elemento en x pos
+    Node<T>* at(int pos);//Conseguir elemento en x pos
     int size();//Conseguir el size
     void clear();//Borra la lista
+    void print();//Print a la lista
 };
 
 template <class T>
@@ -28,7 +34,7 @@ void LinkedList<T>::push_back(T value){
     while (it != nullptr){//Va hasta el final de la lista
         it = it->next;
     }
-    it->next = nodeNew();
+    it->next = nodeNew;
 
 }
 
@@ -71,12 +77,10 @@ bool LinkedList<T>::erase(int pos){
         contador ++;
     }
 
-
-
 }
 
 template <class T>
-    Node<T> LinkedList<T>::at(int pos){
+    Node<T>* LinkedList<T>::at(int pos){
     if (pos > size()||size ()==0){
         return nullptr;//Error porque el valor es mas grande o size == 0
     }
@@ -111,6 +115,24 @@ int LinkedList<T>::size(){
 
 template <class T>
 void LinkedList<T>::clear(){
+    int contador = size()-1;
+    while (contador != -1)
+    {
+        delete at(contador);
+        contador--;
+    }
+    head = nullptr;
+}
+template <class T>
+void LinkedList<T>::print(){
+    if (size()==0){
+        std::cout <<"No hay elementos en la lista pipipi\n";
+        return;
+    }
+    for (int i = 0;i <size();i++)
+    {
+        std::cout <<"["<<i<<"]"<<at(i)->value<<"\n";
+    }
 }
 
 

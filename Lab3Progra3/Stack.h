@@ -1,7 +1,5 @@
 #ifndef STACK_H
 #define STACK_H
-#include <string>
-using std::string;
 
 template<class T> class Stack{
 
