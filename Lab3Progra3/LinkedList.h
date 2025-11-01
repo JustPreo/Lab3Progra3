@@ -30,12 +30,11 @@ void LinkedList<T>::push_back(T value){
         std::cout <<"Creo uno nuevo en el head?\n";
         return;
     }
-    Node<T>* it = this->head;
-
-    while (it != nullptr){//Va hasta el final de la lista
+    Node<T>* it = head;
+    while (it->next != nullptr) { // detener en nodo real
         it = it->next;
     }
-    it = nodeNew;
+    it->next = nodeNew; // enlazar con nodo
     std::cout <<"Creo uno nuevo?\n";
 
 }
@@ -67,7 +66,7 @@ bool LinkedList<T>::erase(int pos){
     Node<T>* it = this->head;
     while(it != nullptr){
 
-        if(it->next != nullptr && contador == pos) {//
+        if (it->next != nullptr && contador + 1 == pos) {
 
             Node<T>* tmpToDelete = it->next;
             it->next = it->next->next;
@@ -78,6 +77,7 @@ bool LinkedList<T>::erase(int pos){
         it = it->next;
         contador ++;
     }
+    return false;
 
 }
 
@@ -109,29 +109,30 @@ int LinkedList<T>::size(){
     int contador = 0;
     Node<T> *it = head;
     while (it != nullptr){
-        it->next;//Ir al ultimo de la lista
+        it= it->next;//Ir al ultimo de la lista
         contador++;
     }
     return contador;
 }
 
 template <class T>
-void LinkedList<T>::clear(){
-    int contador = size()-1;
-    while (contador != -1)
-    {
-        delete at(contador);
-        contador--;
+void LinkedList<T>::clear() {
+    Node<T>* it = head;
+    while (it != nullptr) {
+        Node<T>* tmp = it;
+        it = it->next;
+        delete tmp;
     }
     head = nullptr;
 }
 template <class T>
 void LinkedList<T>::print(){
-    if (size()==0){
+    int n = size();
+    if (n==0){
         std::cout <<"No hay elementos en la lista pipipi\n";
         return;
     }
-    for (int i = 0;i <size();i++)
+    for (int i = 0;i <n;i++)
     {
         std::cout <<"["<<i<<"]"<<at(i)->value<<"\n";
     }
